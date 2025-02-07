@@ -5,9 +5,9 @@
 
 class RootFinding {
 private:
-    double function(double x);      // Function f(x)
-    double derivative(double x);    // Derivative f'(x) for Newton-Raphson
-    double g(double x);             // Transformation function for Fixed-Point
+    double function(double x);      // f(x)
+    double derivative(double x);    // f'(x)
+    double g(double x);            // tarnsfromm for fixd pnt
 
 public:
     void bisection(double a, double b, double tol);                

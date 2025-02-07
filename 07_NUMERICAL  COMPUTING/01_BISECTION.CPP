@@ -5,13 +5,13 @@ using namespace std;
 
 // Define the function for which we want to find the root
 double f(double x) {
-    return x * x * x - x - 2;  // Example: f(x) = x^3 - x - 2
+    return x * x * x - x - 2;  // Example: f(x) = x^a3 - x - 2
 }
 
 // Bisection Method function
 void bisection(double a, double b, double tol) {
     if (f(a) * f(b) >= 0) {
-        cout << "Invalid interval. f(a) and f(b) must have opposite signs." << endl;
+        cout << "interval is Wrong" << endl;
         return;
     }
 

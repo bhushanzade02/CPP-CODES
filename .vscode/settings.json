@@ -41,5 +41,6 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Users\\bhush\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
 }

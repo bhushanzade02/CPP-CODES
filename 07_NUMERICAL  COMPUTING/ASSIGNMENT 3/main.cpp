@@ -25,8 +25,17 @@ int main()
     cout << "Sum of matrices:" << endl;
     sum.display();
 
-    cout << "Difference of matrices:" << endl;
+    cout << "Subtraction of two matrices:" << endl;
     subt.display();
+
+
+    
+    // Check if the first matrix is an identity matrix
+    if (mat2.isidentity())
+        cout << "matrix is an identity matrix!" << endl;
+    else
+        cout << "matrix is NOT an identity matrix!" << endl;
+
 
     return 0;
 }

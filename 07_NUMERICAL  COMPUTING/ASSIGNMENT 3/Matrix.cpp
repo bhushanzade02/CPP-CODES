@@ -76,3 +76,19 @@ Matrix Matrix::sub(const Matrix &other) const
     }
     return result;  
 }
+
+
+bool Matrix::isidentity()const
+{
+    
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (i == j && data[i][j] != 1) // Check diagonal elements
+                return false;
+            if (i != j && data[i][j] != 0) // Check off-diagonal elements
+                return false;
+        }
+    }
+    return true; // If all checks pass, it's an identity matrix
+}
+

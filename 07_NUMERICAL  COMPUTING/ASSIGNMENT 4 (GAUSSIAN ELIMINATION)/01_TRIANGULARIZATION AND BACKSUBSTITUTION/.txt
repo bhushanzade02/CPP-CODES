@@ -1,0 +1,5 @@
+Enter the number of variables (n): 3
+Enter the augmented matrix (coefficients + constants):
+2 1 -1 8
+-3 -1 2 -11
+-2 1 2 -3

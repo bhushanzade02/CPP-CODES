@@ -1,28 +1,27 @@
 #include "cmplxbz.hpp"
+using namespace std;
 
 // Constructor
 cmplxbz::cmplxbz()
 {
     real = 0;
     img = 0;
-    std::cout << "In cmplxbz default constructor ";
+    cout << "In cmplxbz default constructor ";
 }
 
 // Display function
 void cmplxbz::display()
 {
-    std :: cout << this->real ;
- 
-    if(this->img>0)
+    cout << this->real;
+
+    if (this->img > 0)
     {
-        std::cout << " + "; 
-    }else   std::cout << "";
-    std :: cout << this->img << "i" << std::endl;
+        cout << " + ";
+    }
+    else
+        cout << "";
+    cout << this->img << "i" << std::endl;
 }
-
-   
-
-
 
 cmplxbz cmplxbz::add(cmplxbz y)
 {
@@ -32,7 +31,7 @@ cmplxbz cmplxbz::add(cmplxbz y)
     return c;
 }
 
-// Subtraction 
+// Subtraction
 cmplxbz cmplxbz::subtract(cmplxbz y)
 {
     cmplxbz c;

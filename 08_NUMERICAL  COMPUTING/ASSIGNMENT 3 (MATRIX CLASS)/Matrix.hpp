@@ -25,7 +25,8 @@ public:
     // Function to subtract matrices
     Matrix sub(const Matrix &other) const;
 
-
     bool isidentity() const;
+
+    
 };
 

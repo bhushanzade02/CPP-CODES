@@ -1,0 +1,16 @@
+
+ENTERED matrix:
+10 7 8 7 32.1
+7 5 6 5 22.9 
+8 6 10 9 33.1
+7 5 9 10 30.9
+matrix after gauss :
+1 0.7 0.8 0.7 3.21 
+0 1 4 1 4.3
+0 0 1 1.5 2.85 
+0 0 0 1 -1.1
+ back substitution solution:
+x1 = 9.2
+x2 = -12.6
+x3 = 4.5
+x4 = -1.1

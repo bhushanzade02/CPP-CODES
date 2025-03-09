@@ -1,3 +1,16 @@
-1 0 0
-0 1 0
-0 0 1
+
+ENTERED matrix:
+10 7 8 7 32
+7 5 6 5 23
+8 6 10 9 33 
+7 5 9 10 31
+matrix after gauss :
+1 0.7 0.8 0.7 3.2
+0 1 4 1 6
+0 0 1 1.5 2.5
+0 0 0 1 1
+ back substitution solution:
+x1 = 1
+x2 = 1
+x3 = 1
+x4 = 1

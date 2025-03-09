@@ -1,5 +1,3 @@
-#ifndef MATRIX_HPP
-#define MATRIX_HPP
 
 #include <iostream>
 #include <vector>
@@ -23,7 +21,7 @@ public:
     Matrix inverse() const;
     void gaussianElimination();
     void backSubstitution();
-    void setValue(int row, int col, double val);
+
 };
 
-#endif // MATRIX_HPP
+

@@ -1,4 +1,4 @@
-#include "Matrix.hpp"
+#include"Matrix.hpp"
 
 // Constructor
 Matrix::Matrix(int r, int c) : rows(r), cols(c) {
@@ -10,7 +10,7 @@ Matrix::Matrix(int r, int c) : rows(r), cols(c) {
 
 // User input
 void Matrix::inputMatrix() {
-    cout << "Enter matrix elements row-wise (" << rows << "x" << cols << "):\n";
+    cout << "Enter matrix elements (" << rows << "x" << cols << "):\n";
     for (int i = 0; i < rows; ++i)
         for (int j = 0; j < cols; ++j)
             cin >> data[i][j];
@@ -29,7 +29,7 @@ void Matrix::display() const {
 // Matrix addition
 Matrix Matrix::add(const Matrix &other) const {
     if (rows != other.rows || cols != other.cols) {
-        cout << "Matrix dimensions must match for addition!\n";
+        cout << "Matrix dimesion is check";
         return *this;
     }
     Matrix result(rows, cols);
@@ -42,7 +42,7 @@ Matrix Matrix::add(const Matrix &other) const {
 // Matrix subtraction
 Matrix Matrix::sub(const Matrix &other) const {
     if (rows != other.rows || cols != other.cols) {
-        cout << "Matrix dimensions must match for subtraction!\n";
+        cout << "Matrix dimesion check";
         return *this;
     }
     Matrix result(rows, cols);
@@ -64,10 +64,10 @@ bool Matrix::isIdentity() const {
     return true;
 }
 
-// Compute determinant (Recursive function)
+// detreminant
 double Matrix::determinant() const {
     if (rows != cols) {
-        cout << "Determinant is only defined for square matrices!\n";
+        cout << "matrix is size is not ";
         return 0;
     }
     if (rows == 1) return data[0][0];
@@ -90,7 +90,7 @@ double Matrix::determinant() const {
 
 // Gaussian Elimination
 void Matrix::gaussianElimination() {
-    cout << "\nMatrix before Gaussian Elimination:\n";
+    cout << "ENTERED matrix:\n";
     display();
 
     for (int k = 0; k < rows; k++) {
@@ -106,14 +106,14 @@ void Matrix::gaussianElimination() {
         }
     }
 
-    cout << "\nMatrix after Gaussian Elimination:\n";
+    cout << "matrix after gauss :\n";
     display();
     backSubstitution();
 }
 
 // Back-Substitution
 void Matrix::backSubstitution() {
-    cout << "\nPerforming Back-Substitution...\n";
+    cout << " back substitution " ;
 
     for (int i = rows - 1; i >= 0; i--) {
         solution[i] = data[i][cols - 1];
@@ -122,17 +122,9 @@ void Matrix::backSubstitution() {
         }
     }
 
-    cout << "\nSolution:\n";
+    cout << "solution:\n";
     for (int i = 0; i < rows; i++) {
         cout << "x" << i + 1 << " = " << solution[i] << endl;
     }
 }
 
-// Setter function
-void Matrix::setValue(int row, int col, double val) {
-    if (row >= 0 && row < rows && col >= 0 && col < cols) {
-        data[row][col] = val;
-    } else {
-        cout << "Invalid index!" << endl;
-    }
-}

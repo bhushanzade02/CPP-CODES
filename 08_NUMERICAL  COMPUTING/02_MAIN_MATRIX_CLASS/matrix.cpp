@@ -117,12 +117,12 @@ bool Matrix::isDiagDom() const {
 
 void Matrix::gs(vector<double> &b, vector<double> &x, int maxItr, double tol) {
     if (!isDiagDom()) {
-        cout << "Not diagonally dominant. Gauss-Seidel may not converge.\n";
+        cout << "not diagonally dominant.";
         return;
     }
 
     for (int itr = 0; itr < maxItr; itr++) {
-        cout << "Iteration " << itr + 1 << ":\n";
+        cout << "iteration " << itr + 1 << ":\n";
         vector<double> x_old = x;
 
         for (int i = 0; i < r; i++) {
@@ -139,7 +139,7 @@ void Matrix::gs(vector<double> &b, vector<double> &x, int maxItr, double tol) {
             err += abs(x[i] - x_old[i]);
 
         if (err < tol) {
-            cout << "Converged in " << itr + 1 << " iterations.\n";
+            cout << "converged " << itr + 1 << " iteration.\n";
             break;
         }
     }

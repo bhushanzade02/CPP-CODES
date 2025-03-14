@@ -1,6 +1,3 @@
-#ifndef MATRIX_HPP
-#define MATRIX_HPP
-
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -23,9 +20,7 @@ public:
     Matrix sub(const Matrix &m) const;
     bool isId() const;
     double det() const;
-    bool isDiagDom() const;
     void ge(vector<double> &b, vector<double> &x);
+    bool isDiagDom() const;
     void gs(vector<double> &b, vector<double> &x, int maxItr, double tol);
 };
-
-#endif

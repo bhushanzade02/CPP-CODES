@@ -167,3 +167,76 @@ void Matrix::ge(vector<double> &b, vector<double> &x) {
         x[i] /= d[i][i];
     }
 }
+
+
+
+void Matrix::luDecomposition(Matrix &L, Matrix &U) const {
+  
+    L = Matrix();
+    U = Matrix();
+    L.r = L.c = U.r = U.c = r;
+    L.d.resize(r, vector<double>(c, 0));
+    U.d.resize(r, vector<double>(c, 0));
+
+    for (int i = 0; i < r; i++) {
+        // Upper Triangular Matrix
+        for (int j = i; j < c; j++) {
+            double sum = 0;
+            for (int k = 0; k < i; k++) {
+                sum += L.d[i][k] * U.d[k][j];
+            }
+            U.d[i][j] = d[i][j] - sum;
+        }
+
+        // Lower Triangular Matrix
+        for (int j = i; j < r; j++) {
+            if (i == j) {
+                L.d[i][i] = 1;
+            } else {
+                double sum = 0;
+                for (int k = 0; k < i; k++) {
+                    sum += L.d[j][k] * U.d[k][i];
+                }
+                L.d[j][i] = (d[j][i] - sum) / U.d[i][i];
+            }
+        }
+    }
+}
+
+
+void Matrix::gj(vector<double> &b, vector<double> &x, int maxItr, double tol) {
+    if (!isDiagDom()) {
+        cout << "Matrix is not diagonally dominant. Gauss-Jacobi may not converge." << endl;
+        return;
+    }
+
+    vector<double> x_old(x.size(), 0);
+
+    for (int itr = 0; itr < maxItr; itr++) {
+        for (int i = 0; i < r; i++) {
+            double sum = 0;
+            for (int j = 0; j < c; j++) {
+                if (j != i) {
+                    sum += d[i][j] * x_old[j];
+                }
+            }
+            x[i] = (b[i] - sum) / d[i][i];
+            cout << "x[" << i + 1 << "] = " << x[i] << endl;
+        }
+
+        double err = 0;
+        for (int i = 0; i < r; i++) {
+            err += abs(x[i] - x_old[i]);
+        }
+
+        if (err < tol) {
+            cout << "Converged in " << itr + 1 << " iterations." << endl;
+            return;
+        }
+
+        x_old = x;
+    }
+
+    cout << "Gauss-Jacobi did not converge within the given iterations." << endl;
+}
+

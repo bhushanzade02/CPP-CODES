@@ -7,9 +7,11 @@ void menu()
     cout << "2. Matrix Subtraction\n";
     cout << "3. Identity Matrix\n";
     cout << "4. Determinant\n";
-    cout << "5. Gauss-Seidel\n";
+    cout << "5. Gauss-SEIDEL\n";
     cout << "6. Gaussian Elimination\n";
-    cout << "7. Exit\n";
+    cout << "7. LU Decomposition\n";
+    cout << "8. Gauss-JACOBI\n";
+    cout << "9. Exit\n";
 }
 
 vector<double> loadVector(const string &filename)
@@ -95,7 +97,24 @@ int main()
             cout << endl;
             break;
         }
-        case 7:
+        case 7: {
+            Matrix L, U;
+            m1.luDecomposition(L, U);
+            cout << "Lower Triangular Matrix (L):\n";
+            L.show();
+            cout << "Upper Triangular Matrix (U):\n";
+            U.show();
+            break;
+        }
+        case 8:
+        {
+            vector<double> x(m1.det(), 0);
+            int maxItr = 100;
+            double tol = 0.000001;
+            m1.gj(b, x, maxItr, tol);
+            break;
+        }
+        case 9:
             cout << "Exit\n";
             return 0;
         default:

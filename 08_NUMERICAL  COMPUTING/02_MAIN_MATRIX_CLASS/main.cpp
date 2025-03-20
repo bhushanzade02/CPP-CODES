@@ -11,7 +11,8 @@ void menu()
     cout << "6. Gaussian Elimination\n";
     cout << "7. LU Decomposition\n";
     cout << "8. Gauss-JACOBI\n";
-    cout << "9. Exit\n";
+    cout << "9.  lagrange\n";
+    cout << "10. Exit\n";
 }
 
 vector<double> loadVector(const string &filename)
@@ -97,7 +98,8 @@ int main()
             cout << endl;
             break;
         }
-        case 7: {
+        case 7:
+        {
             Matrix L, U;
             m1.luDecomposition(L, U);
             cout << "Lower Triangular Matrix (L):\n";
@@ -115,6 +117,11 @@ int main()
             break;
         }
         case 9:
+            lagrange();
+            break;  
+
+        case 10:
+
             cout << "Exit\n";
             return 0;
         default:

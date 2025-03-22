@@ -11,8 +11,7 @@ void menu()
     cout << "6. Gaussian Elimination\n";
     cout << "7. LU Decomposition\n";
     cout << "8. Gauss-JACOBI\n";
-    cout << "9.  lagrange\n";
-    cout << "10. Exit\n";
+    cout << "9. Exit\n";
 }
 
 vector<double> loadVector(const string &filename)
@@ -116,11 +115,8 @@ int main()
             m1.gj(b, x, maxItr, tol);
             break;
         }
-        case 9:
-            lagrange();
-            break;  
 
-        case 10:
+        case 9:
 
             cout << "Exit\n";
             return 0;

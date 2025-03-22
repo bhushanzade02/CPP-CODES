@@ -214,7 +214,7 @@ void Matrix::luDecomposition(Matrix &L, Matrix &U) const
 
     for (int i = 0; i < r; i++)
     {
-        // Upper Triangular Matrix
+        // Upper
         for (int j = i; j < c; j++)
         {
             double sum = 0;
@@ -225,7 +225,7 @@ void Matrix::luDecomposition(Matrix &L, Matrix &U) const
             U.d[i][j] = d[i][j] - sum;
         }
 
-        // Lower Triangular Matrix
+        // Lower
         for (int j = i; j < r; j++)
         {
             if (i == j)
@@ -289,40 +289,6 @@ void Matrix::gj(vector<double> &b, vector<double> &x, int maxItr, double tol)
     cout << "Gauss-Jacobi did not converge within the given iterations." << endl;
 }
 
-int Matrix::lagrange()
-{
-    int n;
-    cout << "Enter No of data points" << endl;
-    cin >> n;
-    double x[100], y[100];
-    cout << "Enter x and y values" << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << "x[" << i << "]";
-        cin >> x[i];
-        cout << "y[" << i << "]";
-        cin >> y[i];
-    }
 
-    double xp;
-    cout << "Enter a target value (xp) for interpolation" << endl;
-    cin >> xp;
-    double yp = 0.0;
 
-    for (int i = 0; i < n; i++)
-    {
-        double p = 1.0;
 
-        for (int j = 0; j < n; j++)
-        {
-            if (i != j)
-            {
-                p *= (xp - x[j]) / (x[i] - x[j]);
-            }
-        }
-        yp += p * y[i];
-    }
-
-    cout << "Interpolated value at X=" << xp << " is " << yp << endl;
-    return 0;
-}

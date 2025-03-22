@@ -12,6 +12,7 @@ class Matrix
 {
 private:
     vector<vector<double>> d;
+  
     int r, c;
 
 public:
@@ -26,8 +27,7 @@ public:
     void ge(vector<double> &b, vector<double> &x);
     bool isDiagDom() const;
     void gs(vector<double> &b, vector<double> &x, int maxItr, double tol);
+
     void gj(vector<double> &b, vector<double> &x, int maxItr, double tol);
     void luDecomposition(Matrix &L, Matrix &U) const;
-    int lagrange();
-
 };

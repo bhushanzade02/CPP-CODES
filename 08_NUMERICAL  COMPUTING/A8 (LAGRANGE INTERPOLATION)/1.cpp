@@ -2,9 +2,7 @@
 using namespace std;
 
 
-
-
-int lagrange()
+int main()
 
 {
     int n;
@@ -16,7 +14,7 @@ int lagrange()
     {
         cout << "x[" << i << "]";
         cin >> x[i];
-        cout << "y[" << i << "]";
+        cout << "y[" << i <<; "]";
         cin >> y[i];
     }
 

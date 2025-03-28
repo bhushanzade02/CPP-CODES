@@ -1,7 +1,7 @@
 #include "taylor.hpp"
 #include <iostream>
 #include <cmath>
-using namespace std;
+using namespace std;//
 
 double A::find_e_x(double x)
 {

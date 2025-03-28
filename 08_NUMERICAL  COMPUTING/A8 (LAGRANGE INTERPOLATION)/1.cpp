@@ -14,7 +14,7 @@ int main()
     {
         cout << "x[" << i << "]";
         cin >> x[i];
-        cout << "y[" << i <<; "]";
+        cout << "y[" << i << "]";
         cin >> y[i];
     }
 

@@ -1,6 +1,4 @@
-
-all:
-	g++ -o my_program main.cpp
-
+f: main.o hello.o
+	g++ -o f main.o hello.o 
 clean:
-	cmd /C del /Q my_program
+	rm -f f main.o hello.o

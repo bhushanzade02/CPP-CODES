@@ -11,10 +11,11 @@ int main()
     int wordcount = 0;
     int charcount = 0;
     int sentcount = 0;
-    bhus.open("D:\\13_CPP-CODES\\09_PPL-2\\PRACTICE PROBLEM\\practice\\bhushan.txt");
+    bhus.open("D:\\13_CPP-CODES\\09_PPL-2\\PRACTICE PROBLEM\\01_PRACTICE\\bhushan.txt");
 
-    while (getline(bhus, str))
-    {
+    
+
+    while (getline(bhus, str))    {
         cout << str << endl;
         linecount++;
         charcount += str.size() + 1;

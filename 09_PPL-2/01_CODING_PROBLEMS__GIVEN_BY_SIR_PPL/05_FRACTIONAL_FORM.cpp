@@ -14,6 +14,8 @@ int fracToratio(double n)
     double f = n - I;
     int num, den = 1;
 
+  
+
     while (f - (int)f > 0)
     {
         f *= 10;

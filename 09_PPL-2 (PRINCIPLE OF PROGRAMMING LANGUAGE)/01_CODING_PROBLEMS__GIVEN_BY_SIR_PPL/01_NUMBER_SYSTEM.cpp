@@ -84,6 +84,4 @@ int main()
     {
         cout << num;
     }
-
-   
 }

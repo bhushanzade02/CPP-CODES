@@ -13,7 +13,7 @@ int main()
     int sentcount = 0;
     bhus.open("D:\\13_CPP-CODES\\09_PPL-2\\PRACTICE PROBLEM\\01_PRACTICE\\bhushan.txt");
 
-    
+        
 
     while (getline(bhus, str))    {
         cout << str << endl;

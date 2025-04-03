@@ -1,5 +1,6 @@
 #include "fract.hpp"
 #include <iostream>
+#include<fstream>
 using namespace std;
 int Form::gcd(int a, int b)
 {

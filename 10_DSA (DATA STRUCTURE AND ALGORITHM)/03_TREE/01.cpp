@@ -71,41 +71,77 @@ void postOrder(Node *root)
 // level order tarversal
 
 void levelOrder(Node *root)
-
 {
+    if (root == NULL)
+        return;
+
     queue<Node *> q;
     q.push(root);
-    q.push(NULL);
+    q.push(NULL); // Marker for end of level
 
-    while (q.size() > 0)
+    while (!q.empty())
     {
         Node *curr = q.front();
         q.pop();
+
         if (curr == NULL)
         {
+            cout << endl;
             if (!q.empty())
             {
-                cout << endl;
-                q.push(NULL);
-                continue;
+                q.push(NULL); // Add marker for the next level
             }
-            else
+        }
+        else
+        {
+            cout << curr->data << " ";
+            if (curr->left != NULL)
             {
-                break;
+                q.push(curr->left);
+            }
+            if (curr->right != NULL)
+            {
+                q.push(curr->right);
             }
         }
-
-        cout << curr->data << " ";
-        if (curr->left != NULL)
-        {
-            q.push(curr->left);
-        }
-        if (curr->right != NULL)
-        {
-            q.push(curr->right);
-        }
-        cout << endl;
     }
+};
+
+// height of Tree
+int height(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    int lftHt = height(root->left);
+    int rgtHt = height(root->right);
+    return max(lftHt, rgtHt) + 1;
+}
+
+// count the nodes of tree
+int count(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    int lftHt = count(root->left);
+    int rgtHt = count(root->right);
+    return lftHt + rgtHt + 1;
+}
+
+int sumodNodes(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    int lftsum = sumodNodes(root->left);
+    int rgtsum = sumodNodes(root->right);
+    return lftsum + rgtsum + root->data;
 }
 
 int main()
@@ -120,7 +156,10 @@ int main()
     // preOrder(root);
     // inOrder(root);
     // postOrder(root);
-    levelOrder(root);
-    cout << endl;
+    // levelOrder(root);
+    cout << "Height : " << height(root) << endl;
+    cout << "count : " << count(root) << endl;
+    cout << "sum : " << sumodNodes(root) << endl;
+
     return 0;
 }

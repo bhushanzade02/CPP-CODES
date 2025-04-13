@@ -4,9 +4,6 @@
 #include "emp.hpp"
 
 
-
-//Employee Management Statement from scratch
-
 using namespace std;
 
 void Employee::displayInfo()

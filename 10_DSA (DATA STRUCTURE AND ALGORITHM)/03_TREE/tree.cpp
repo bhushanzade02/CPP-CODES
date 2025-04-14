@@ -172,3 +172,5 @@ int main()
 // rough work
 
 // hello
+// creating a new git branch 
+// and merging with it 

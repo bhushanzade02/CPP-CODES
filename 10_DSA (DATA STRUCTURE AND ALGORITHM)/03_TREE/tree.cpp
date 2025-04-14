@@ -163,3 +163,10 @@ int main()
 
     return 0;
 }
+
+
+
+
+
+
+// rough work

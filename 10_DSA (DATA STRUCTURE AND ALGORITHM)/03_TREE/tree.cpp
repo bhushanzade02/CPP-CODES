@@ -4,7 +4,7 @@
 using namespace std;
 
 
-// tree  data structure??do
+// tree  data structure
 class Node
 {
 public:

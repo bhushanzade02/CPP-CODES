@@ -3,8 +3,8 @@
 #include <queue>
 using namespace std;
 
-//dsa
-// tree  data structure
+// dsa
+//  tree  data structure
 class Node
 {
 public:
@@ -146,6 +146,21 @@ int sumodNodes(Node *root)
     return lftsum + rgtsum + root->data;
 }
 
+// max of tree
+int TreeMAx(Node *root)
+{
+    if (!root)
+    {
+        return INT8_MAX;
+    }
+
+    int Lmax = TreeMAx(root->left);
+    int Rmax = TreeMAx(root->right);
+    return max(max(Lmax, Rmax), root->data);
+}
+
+
+
 int main()
 {
     vector<int> preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
@@ -159,11 +174,10 @@ int main()
     // inOrder(root);
     // postOrder(root);
     // levelOrder(root);
-    cout << "Height : " << height(root) << endl;
-    cout << "count : " << count(root) << endl;
-    cout << "sum : " << sumodNodes(root) << endl;
+    // cout << "Height : " << height(root) << endl;
+    // cout << "count : " << count(root) << endl;
+    // cout << "sum : " << sumodNodes(root) << endl;
+    cout << "MAx of Tree : " << TreeMAx(root) << endl;
 
     return 0;
 }
-
-

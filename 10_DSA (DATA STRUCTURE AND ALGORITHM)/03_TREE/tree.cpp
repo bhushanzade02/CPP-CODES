@@ -161,6 +161,7 @@ int TreeMAx(Node *root)
 
 void Kthlevel(Node *root, int k)
 {
+
     if (root == NULL)
     {
         return;
@@ -177,27 +178,37 @@ void Kthlevel(Node *root, int k)
     Kthlevel(root->right, k - 1);
 }
 
+int diam(Node *root)
+{
+    if (root == NULL)
+        return 0;
+
+    int leftDiam = diam(root->left);
+    int rightDiam = diam(root->right);
+    int currdiam = height(root->left) + height(root->right);
+    return max(currdiam, max(leftDiam, rightDiam));
+}
+
 int main()
 {
     // vector<int> preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
-    vector<int> preorder = {1,2,7,-1,-1,-1,3,4,-1,-1,5,-1,-1};
+    vector<int> preorder = {1, 2, 7, -1, -1, -1, 3, 4, -1, -1, 5, -1, -1};
 
     Node *root = buildTree(preorder);
-    // cout << root->data << endl;
-    // cout << root->left->data << endl;
-    // cout << root->right->data << endl;
- 
+    cout << root->data << endl;
+    cout << root->left->data << endl;
+    cout << root->right->data << endl;
 
-    // preOrder(root);
+    preOrder(root);
     // inOrder(root);
-    // postOrder(root); 
+    // postOrder(root);
     // levelOrder(root);
-    // cout << "Height : " << height(root) << endl;
-    // cout << "count : " << count(root) << endl;
-    // cout << "sum : " << sumodNodes(root) << endl;
-    // cout << "MAx of Tree : " << TreeMAx(root) << endl;
-
-    Kthlevel(root, 1);
-
+    cout << "Height : " << height(root) << endl;
+    cout << "count : " << count(root) << endl;
+    cout << "sum : " << sumodNodes(root) << endl;
+    cout << "MAx of Tree : " << TreeMAx(root) << endl;
+    Kthlevel(root, 3);
+    cout << " " << endl;
+    cout << "Diameter: " << diam(root);
     return 0;
 }

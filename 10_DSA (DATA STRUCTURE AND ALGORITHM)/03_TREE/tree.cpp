@@ -43,7 +43,8 @@ void preOrder(Node *root)
     preOrder(root->right);
 };
 
-// inorder traversal
+// inorder_travesal
+
 void inOrder(Node *root)
 {
     if (root == NULL)

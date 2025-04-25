@@ -78,10 +78,10 @@ int LeastSquareMethod::parabola(int n)
     double b = Db / d;
     double c = Dc / d;
 
-    cout << "\nEquation of best fit parabola is:\n";
+    cout << "Equation fit parabola is:";
     cout << "y = " << a << "x^2 + " << b << "x + " << c << endl;
 
-     cout << "\nPredicted values and squared errors:\n";
+    cout << "Predicted values";
     double sumError = 0.0;
     for (int i = 0; i < n; i++)
     {
@@ -92,8 +92,72 @@ int LeastSquareMethod::parabola(int n)
     }
 
     double rmse = sqrt(sumError / n);
-    cout << "\nTotal Sum of Squared Errors = " << sumError << endl;
-    cout << "Root Mean Squared Error (RMSE) = " << rmse << endl;
+    cout << "Total Sum of Squared Errors = " << sumError << endl;
+    cout << " (RMSE) = " << rmse << endl;
 
     return 0;
+}
+
+int LeastSquareMethod::exponential(int n)
+{
+    // double sumx = 0, sumx2 = 0, sumy = 0, sumxy = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (y[i] <= 0)
+        {
+            cout << "enter y as positive";
+            return -1;
+        }
+        double Y = log(y[i]);
+        sumx += x[i];
+        sumx2 += x[i] * x[i];
+        sumy += Y;
+        sumxy += x[i] * Y;
+    }
+
+    double den = n * sumx2 - sumx * sumx;
+    double b = (n * sumxy - sumx * sumy) / den;
+    double A = (sumy * sumx2 - sumx * sumxy) / den;
+    double a = exp(A);
+
+    cout << "y = " << a << " * e^(" << b << "x)\n";
+    return 0;
+}
+
+int LeastSquareMethod::powerfit(int n)
+{
+    double sumx = 0, sumx2 = 0, sumy = 0, sumxy = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+
+        double X = log(x[i]);
+        double Y = log(y[i]);
+        sumx += X;
+        sumx2 += X * X;
+        sumy += Y;
+        sumxy += X * Y;
+    }
+
+    double den = n * sumx2 - sumx * sumx;
+    double b = (n * sumxy - sumx * sumy) / den;
+    double A = (sumy * sumx2 - sumx * sumxy) / den;
+    double a = exp(A);
+
+    cout << "y = " << a << " * x^" << b;
+    return 0;
+}
+
+double LeastSquareMethod::Tchebyshev(int k, double x)
+{
+    if (k == 0)
+    {
+        return 1;
+    }
+    if (k == 1)
+    {
+        return x;
+    }
+    return 2 * x * Tchebyshev(k - 1, x) - Tchebyshev(k - 2, x);
 }

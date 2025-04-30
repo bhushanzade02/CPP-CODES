@@ -3,9 +3,19 @@
 
 using namespace std;
 
-// Define the function for which we want to find the root
+
+
+
 double f(double x) {
     return x * x * x - x - 2;  // Example: f(x) = x^a3 - x - 2
+}
+
+
+
+
+
+double f(double x) {
+    return x;  // Example: f(x) = x^a3 - x - 2
 }
 
 // Bisection Method function
@@ -18,9 +28,8 @@ void bisection(double a, double b, double tol) {
     double mid;
     int iteration = 0;
 
-    while ((b - a) >= tol) {  // Stop when interval width is smaller than tolerance
-        mid = (a + b) / 2.0;  // Find the midpoint
-
+    while ((b - a) >= tol) {  
+        mid = (a + b) / 2.0; 
         cout << "Iteration " << iteration++ << ": mid = " << mid << ", f(mid) = " << f(mid) << endl;
 
         if (f(mid) == 0.0) {
@@ -38,6 +47,7 @@ void bisection(double a, double b, double tol) {
 }
 
 int main() {
+
     double a = 1, b = 2;  // Initial interval [a, b]
     double tolerance = 0.0001;  // Desired precision
 

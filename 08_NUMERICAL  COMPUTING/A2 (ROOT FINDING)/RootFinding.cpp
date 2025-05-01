@@ -86,11 +86,12 @@ void RootFinding::newtonRaphson(double x0, int maxIter)
     cout << "Approximate root Newton-Raphson: " << x << endl;
 }
 
-// Fixed-Point Iteration Method
-void RootFinding::fixedPointIteration(double x0, double tol, int maxIter)
+// Fixed-Point Iteration Methods
+void RootFinding::fixedPointIteration(double x0, int maxIter)
 {
     double x = x0;
     int iter = 0;
+    double tol = 0.00001;
 
     while (iter < maxIter)
     {

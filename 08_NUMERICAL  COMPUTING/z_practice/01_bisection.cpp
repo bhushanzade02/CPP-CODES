@@ -7,13 +7,13 @@ class RootFinding
 public:
     double function(double x)
     {
-        return (4 * x * x * x) - (3 * x);
+        return x * x - 5 * x + 3;
     }
 
     void BisectionMethod(double a, double b)
     {
 
-        double tol = 0.01;
+        double tol = 0.000001;
 
         if (function(a) * function(b) >= 0)
         {
@@ -48,7 +48,7 @@ int main()
 {
 
     RootFinding rf;
-    double a = 0.5, b = 1.0;
+    double a = 0, b = 1.0;
     rf.BisectionMethod(a, b); // Run Bisection Method
     return 0;
 }

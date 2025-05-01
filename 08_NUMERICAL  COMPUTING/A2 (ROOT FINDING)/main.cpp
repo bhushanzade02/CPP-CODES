@@ -10,14 +10,14 @@ int main()
     double tol = 0.0001;
     int maxIter = 100;
 
-    cout << " Bisection Method ";
-    numericalcomp.bisection(a, b);
+    // cout << " Bisection Method ";
+    // numericalcomp.bisection(a, b);
 
-    cout << "  Newton-Raphson Method ";
-    numericalcomp.newtonRaphson(x0, maxIter);
+    // cout << "  Newton-Raphson Method ";
+    // numericalcomp.newtonRaphson(x0, maxIter);
 
-    cout << " Fixed-Point Iteration ";
-    numericalcomp.fixedPointIteration(x0, tol, maxIter);
+    cout << " Fixed-Point Iteration \n";
+    numericalcomp.fixedPointIteration(x0, maxIter);
 
     return 0;
 }

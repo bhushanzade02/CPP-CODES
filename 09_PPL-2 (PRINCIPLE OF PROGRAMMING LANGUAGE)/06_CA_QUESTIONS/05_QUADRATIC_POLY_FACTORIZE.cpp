@@ -3,7 +3,7 @@
 #include<fstream>
 using namespace std;
 
-
+//Quadratic polynomial equation 
 class Quadratic
 {
 

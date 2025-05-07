@@ -9,7 +9,7 @@ int gcd(int a, int b)
 }
 
 int fracToratio(double n)
-{
+{       
     int I = (int)n;
     double f = n - I;
     int num, den = 1;

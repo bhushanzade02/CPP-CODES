@@ -18,7 +18,7 @@ int main()
     while (getline(bhus, str))    {
         cout << str << endl;
         linecount++;
-        charcount += str.size() + 1;
+                    charcount += str.size() + 1;
 
         for (char ch : str)
         {

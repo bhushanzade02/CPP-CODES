@@ -1,50 +1,49 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
-class CSorter
+
+class Csort
 {
-    public:
-    int sort_ab()
+
+public:
+    void sortnumber()
     {
         int n;
-        cout << "enter number of elements" << endl;
+        cout << "Enter the Number of elements ";
         cin >> n;
 
-        double a[100];
-        cout << "enter elements" << endl;
+        vector<double> arr(n);
+        cout << "Enter the elements" << endl;
         for (int i = 0; i < n; i++)
         {
-            cin >> a[i];
+            cin >> arr[i];
         }
-        char ch;
 
-        cout << "you HAVE TO CHOICES A FOR ASCENIDNG" << endl;
-        cout << "you HAVE TO CHOICES B FOR DESCENIDNG" << endl;
-        cin >> ch;
-        for (int i = 0; i < n - 1; i++)
+        char choice;
+        cout << "Enter A for asecending and D for descending " << endl;
+        cin >> choice;
+
+        if (choice == 'A' || choice == 'a')
         {
-            for (int j = 0; j < n - 1; j++)
-            {
-                if (ch == 'A' && a[j] > a[j + 1])
-                {
-                    swap(a[j], a[j + 1]);
-                }
-                else if (ch == 'B' && a[j] < a[j + 1])
-                {
-                    swap(a[j], a[j + 1]);
-                }
-            }
+            sort(arr.begin(), arr.end());
         }
-        for (int i = 0; i < n; i++)
+        else if (choice == 'B' || choice == 'b')
         {
-            cout << a[i] << endl;
+            sort(arr.begin(), arr.end(), greater<double>());
         }
+
+        for (double val : arr)
+        {
+            cout << val << " ";
+        }
+        cout << endl;
     }
 };
 
 int main()
 {
-
-    CSorter obj;
-    obj.sort_ab();
+    Csort obj;
+    obj.sortnumber();
     return 0;
 }

@@ -1,58 +1,47 @@
 #include <iostream>
-#include <cmath>
+#include <cmath>   // for cos, sin, acos, asin
+#include <iomanip> // for setprecision
 using namespace std;
 
-/*TRIANGLE iNEQUALITY tHEOREM
-a + b > c
-a + c > b
-b + c > a*/
+#define PI 3.141592653589793
 
-bool inequality(int a, int b, int c)
+bool isValidTriangle(double a, double b, double c)
 {
-    if (a + b > c && a + c > b && b + c > a)
-    {
-        cout << "Valid angle " << endl;
-        return true;
-    }
-    else
-    {
-        cout << "Invalid angle" << endl;
-        return false;
-    }
-};
+    return (a + b > c && a + c > b && b + c > a);
+}
 
-void computeangles(int a, int b, int c)
+double radiansToDegrees(double radians)
 {
-    // law Of Cosine for finding angle c
-    double angle_C_rad = acos((a * a + b * b - c * c) / (2 * a * b));
-    double angle_C_deg = angle_C_rad * 180 / M_PI;
-
-    // law of sine for finding angle a and b
-    double sin_A = a * sin(angle_C_rad) / c;
-    double angle_A_rad = asin(sin_A);
-    double angle_A_deg = angle_A_rad * 180 / M_PI;
-
-    double angle_b_deg = 180 - angle_A_deg - angle_C_deg;
-
-    cout << "Angle A :" << angle_A_deg;
-    cout << "Angle B :" << angle_b_deg;
-    cout << "Angle C :" << angle_C_deg;
+    return radians * (180.0 / M_PI);
 }
 
 int main()
 {
-    int a, b, c;
-    cout << "Enter the values of   a,b,and c" << endl;
+    double a, b, c;
+    cout << "Enter three sides of triangle: ";
     cin >> a >> b >> c;
 
-    bool check = inequality(a, b, c);
-    if (check == true)
+    if (!isValidTriangle(a, b, c))
     {
-        computeangles(a, b, c);
+        cout << "Error: Triangle cannot be formed with given side lengths." << endl;
+        return 1;
     }
-    else
-    {
-        cout << "Triangle Inequality Not satisfied" << endl;
-    }
-    return 0;
+
+    // Law of Cosines for angle C
+    double cosC = (a * a + b * b - c * c) / (2 * a * b);
+    double angleC = radiansToDegrees(acos(cosC));
+
+    // Law of Cosines for angle B
+    double cosB = (a * a + c * c - b * b) / (2 * a * c);
+    double angleB = radiansToDegrees(acos(cosB));
+
+    // Angle A from total 180°
+    double angleA = 180.0 - angleB - angleC;
+
+    cout << fixed << setprecision(2);
+    cout << angleA<<" ";
+    cout << angleB<<" ";
+    cout << angleC<<" " ;
+
+    return 0; 
 }

@@ -40,11 +40,11 @@ int main()
     cout << "Enter the value between 1 and 20 " << endl;
     cin >> z;
 
-    if (z <= 1 || z >= 20)
-    {
-        cout << "Error : z must be in 1 and 20" << endl;
-        return 1;
-    }
+    // if (z <= 1 || z >= 20)
+    // {
+    //     cout << "Error : z must be in 1 and 20" << endl;
+    //     return 1;
+    // }
 
     double result = langrange(x, y, z);
     cout << "The Interpolated value at z = " << z << "is f(z)" << result << endl;

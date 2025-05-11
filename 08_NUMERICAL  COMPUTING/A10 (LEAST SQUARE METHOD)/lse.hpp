@@ -13,7 +13,7 @@ public:
     int line(int x);
     int parabola(int x);
 
-
+dwud    whdio   woi
 
     
     int exponential(int x);

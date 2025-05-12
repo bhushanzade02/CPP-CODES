@@ -14,6 +14,8 @@ public:
     int parabola(int x);
 
 
+    // bhushan sanjay zade
+
 
     
     int exponential(int x);

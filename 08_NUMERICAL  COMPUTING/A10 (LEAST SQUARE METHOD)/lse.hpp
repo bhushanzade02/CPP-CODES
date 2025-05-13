@@ -14,7 +14,6 @@ public:
     int parabola(int x);
 
 
-    // bhushan sanjay zade
 
 
     

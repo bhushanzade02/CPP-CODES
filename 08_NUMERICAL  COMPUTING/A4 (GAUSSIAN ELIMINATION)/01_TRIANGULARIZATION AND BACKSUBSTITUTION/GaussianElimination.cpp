@@ -2,58 +2,97 @@
 
 using namespace std;
 
-// Constructor to initialize the matrix
-GaussianElimination::GaussianElimination(vector<vector<double>> mat) {
+GaussianElimination::GaussianElimination(vector<vector<double>> mat)
+{
     matrix = mat;
     n = matrix.size();
-    solution.resize(n); // Initialize solution vector with size n
+    solution.resize(n);
 }
 
-// Function to perform Gaussian elimination (Forward Elimination)
-void GaussianElimination::eliminate() {
-    for (int k = 0; k < n; k++) { // Pivot row
-        // Step 1: Normalize the k-th row
-        double pivot = matrix[k][k];
-        for (int j = k; j < n + 1; j++) { // Include augmented column
-            matrix[k][j] /= pivot; // Normalize k-th row
-        }
+// void GaussianElimination::eliminate() {
+//     for (int k = 0; k < n; k++) {
 
-        // Step 2: Use row k to eliminate values in column k for rows i > k
-        for (int i = k + 1; i < n; i++) { // Start from row (k+1)
-            double factor = matrix[i][k];
-            for (int j = k; j < n + 1; j++) {
-                matrix[i][j] -= factor * matrix[k][j]; // Ri = Ri - Aik * Rk
-            }
-        }
-    }
-}
+//         double pivot = matrix[k][k];
+//         for (int j = k; j < n + 1; j++) {
+//             matrix[k][j] /= pivot;
+//         }
 
-// Function to perform Back-Substitution
-void GaussianElimination::backSubstitution() {
-    for (int i = n - 1; i >= 0; i--) { // Start from the last row
-        solution[i] = matrix[i][n]; // Start with the rightmost column value (b_i)
+//         for (int i = k + 1; i < n; i++) {
+//             double factor = matrix[i][k];
+//             for (int j = k; j < n + 1; j++) {
+//                 matrix[i][j] -= factor * matrix[k][j];
+//             }
+//         }
+//     }
+// }
 
-        // Subtract known values from already computed solutions
-        for (int j = i + 1; j < n; j++) {
+void GaussianElimination::backSubstitution()
+{
+    for (int i = n - 1; i >= 0; i--)
+    {
+        solution[i] = matrix[i][n];
+
+        for (int j = i + 1; j < n; j++)
+        {
             solution[i] -= matrix[i][j] * solution[j];
         }
     }
 }
 
-// Function to display the matrix
-void GaussianElimination::display() {
-    for (const auto &row : matrix) {
-        for (double val : row) {
+void GaussianElimination::display()
+{
+    for (const auto &row : matrix)
+    {
+        for (double val : row)
+        {
             cout << val << " ";
         }
         cout << endl;
     }
 }
 
-// Function to display the computed solution vector
-void GaussianElimination::displaySolution() {
+void GaussianElimination::displaySolution()
+{
     cout << "\nSolution:\n";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         cout << "x" << i + 1 << " = " << solution[i] << endl;
     }
 }
+
+void GaussianElimination::eliminate(const vector<pair<int, int>> &pivots)
+{
+    for (const auto &ppos : pivots)
+    {
+        int row = ppos.first;
+        int pcol = ppos.second;
+
+        double pivot = matrix[row][pcol];
+        if (pivot == 0)
+        {
+            cout << "Zero pivot" ;
+            continue;
+        }
+
+        for (int j = pcol; j < n + 1; ++j)
+        {
+            matrix[row][j] /= pivot;
+        }
+
+        for (int i = 0; i < n; ++i)
+        {
+            if (i == row)
+                continue;
+            double factor = matrix[i][pcol];
+            for (int j = pcol; j < n + 1; ++j)
+            {
+                matrix[i][j] -= factor * matrix[row][j];
+            }
+        }
+    }
+}
+
+// eliminate({{0,0}, {1,1}, {2,2}});
+
+
+

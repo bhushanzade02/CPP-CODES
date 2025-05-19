@@ -4,25 +4,23 @@
 
 using namespace std;
 
-class GaussianElimination {
+class GaussianElimination
+{
 private:
     vector<vector<double>> matrix;
     vector<double> solution;
-    int n; // Size of the matrix (assuming square)
+    int n;
 
 public:
-    // Constructor
-        GaussianElimination(vector<vector<double>> mat);
+    GaussianElimination(vector<vector<double>> mat);
 
-        // Function to perform Gaussian elimination (Forward elimination)
-        void eliminate();
+    
+    // void eliminate();
+    void eliminate(const vector<pair<int, int>> &pivots);
 
-        // Function to perform back-substitution and find the solution
-        void backSubstitution();
+    void backSubstitution();
 
-        // Function to display the matrix
-        void display();
+    void display();
 
-        // Function to display the solution vector
-        void displaySolution();
+    void displaySolution();
 };

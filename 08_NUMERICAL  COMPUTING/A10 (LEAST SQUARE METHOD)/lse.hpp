@@ -19,6 +19,11 @@ public:
      exponential , powerfit , Tchebyshev 
  */
 
+ /*  Numerical computing lab assignment for 
+     Least square method for line , parabola ,
+     exponential , powerfit , Tchebyshev 
+ */
+
     int exponential(int x);
     int powerfit(int x);
     double Tchebyshev(int k, double x);

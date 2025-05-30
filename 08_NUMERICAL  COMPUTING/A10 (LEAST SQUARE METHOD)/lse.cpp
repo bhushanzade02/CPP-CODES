@@ -23,7 +23,6 @@ int LeastSquareMethod::line(int n)
     cout << "Sum of y = " << sumy << endl;
     cout << "Sum of xy = " << sumxy << endl;
     cout << "Sum of x^2 = " << sumx2 << endl;
-
     double a = (n * sumxy - sumx * sumy) / (n * sumx2 - sumx * sumx);
     double b = (sumy - a * sumx) / n;
 
@@ -46,6 +45,9 @@ int LeastSquareMethod::line(int n)
     cout << "RMSE : " << rmse << endl;
 }
 
+
+
+// lse
 int LeastSquareMethod::parabola(int n)
 {
 

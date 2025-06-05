@@ -48,6 +48,8 @@ int LeastSquareMethod::line(int n)
 
 
 // lse
+//ss
+
 int LeastSquareMethod::parabola(int n)
 {
 

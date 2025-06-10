@@ -46,7 +46,7 @@ int LeastSquareMethod::line(int n)
 }
 
 
-//update
+//update sjdsjd
 
 int LeastSquareMethod::parabola(int n)
 {

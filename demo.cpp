@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
+    
 
     cout<<"enter a score";
     int score;

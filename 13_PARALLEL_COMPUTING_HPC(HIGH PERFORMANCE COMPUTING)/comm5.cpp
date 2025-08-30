@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     int n = 100;
     int part = n / size;
-    int remainder = n % size;   // leftover numbers
+    int remainder = n % size;  
 
     if (rank == 0)
     {

@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
         for (int i = 1; i <= n; i++) A.push_back(i);
 
         // send equal 'part' sized chunks to other processes
-        for (int p = 1; p < size; i++) {
+        for (int p = 1; p < size; p++) {
             MPI_Send(A.data() + p * part, part, MPI_INT, p, 1, MPI_COMM_WORLD);
         }
 

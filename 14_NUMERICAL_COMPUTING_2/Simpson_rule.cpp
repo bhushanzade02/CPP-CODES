@@ -7,6 +7,7 @@ float y(float x)
     return 1 / (1 + x * x);
 }
 
+
 int main()
 {
     float x0, xn, h, s;

@@ -18,6 +18,7 @@ int main()
     cout <<"Enter X0 , xn , no of subintervals "<<endl;
     cin >> x0 >> xn >> n ;
     cout << fixed;
+   
     h = (xn - x0) / n ;
     s = y(x0) + y(xn) ;
     

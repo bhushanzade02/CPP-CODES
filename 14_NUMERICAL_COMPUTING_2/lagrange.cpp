@@ -10,11 +10,13 @@ int main()
     int n;
     cout << "enter th value of n " << endl;
     cin >> n;
+
     cout << "Enter the set of values" << endl;
     for (int i = 0; i <= n; i++)
     {
         cin >> ax[i] >> ay[i];
     }
+    
     cout << "enter the value of x for which"
          << "y value  wanted" << endl;
     cin >> x;

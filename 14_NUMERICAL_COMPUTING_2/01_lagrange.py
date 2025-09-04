@@ -12,7 +12,6 @@ for i in range(n):
 
 x = int(input("enter the value for you want to calculate"))
 
-
 for i in range(n):
     print(Ax)
 

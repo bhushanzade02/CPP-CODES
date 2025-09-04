@@ -27,6 +27,7 @@ for i in range(n):
             dr *= Ax[i] - Ax[j]
     y += (nr/dr) * Ay[i]
 
+
 print(f"when x = {x} then y =  {y}")
 
 

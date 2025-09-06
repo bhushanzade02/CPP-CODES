@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
             int extra = (p < remainder) ? 1 : 0;  // give extra number if p < remainder
             int send_count = part + extra;
 
-            start += (p == 1 ? part + (0 < remainder) : part + ((p - 1) < remainder));
+            start = start + (p == 1 ? part + (0 < remainder) : part + ((p - 1) < remainder));
             MPI_Send(A.data() + start, send_count, MPI_INT, p, 1, MPI_COMM_WORLD);
         }
 

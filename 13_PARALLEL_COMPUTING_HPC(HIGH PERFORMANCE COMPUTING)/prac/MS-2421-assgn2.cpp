@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     for (int n : n_list) {
         double h = (b - a) / n;
 
-        // Divide work
+        //  Divide work
         int part = n / size;
         int rem = n % size;
 

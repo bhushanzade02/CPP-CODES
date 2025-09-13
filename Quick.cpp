@@ -1,15 +1,11 @@
 // MS-2301-assgn3.cpp
-// Replace MS-2301 with your roll number before submission.
-//
 // Parallel QuickSort with MPI
-// Partition + QuickSort logic from notes
-// No MPI_Bcast, only Send/Recv
 
 #include <mpi.h>
 #include <iostream>
 using namespace std;
 
-// Partition function based on your notes
+
 int partition(int A[], int start, int end) {
     int pivot = A[start];
     int i = start;
@@ -24,7 +20,6 @@ int partition(int A[], int start, int end) {
     return i;
 }
 
-// Recursive QuickSort
 void quicksort(int A[], int start, int end) {
     if (end - start <= 0) return;
 
@@ -41,7 +36,7 @@ int main(int argc, char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    int arr[100]; // fixed-size array for simplicity
+    int arr[100];
     int part, rem;
 
     if (rank == 0) {
@@ -52,12 +47,12 @@ int main(int argc, char *argv[]) {
         for (int i = 0; i < n; i++)
             cin >> arr[i];
 
-        // Send n to all workers
+
         for (int p = 1; p < size; p++) {
             MPI_Send(&n, 1, MPI_INT, p, 0, MPI_COMM_WORLD);
         }
     } else {
-        // Receive n from root
+     
         MPI_Recv(&n, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
     }
 
@@ -65,25 +60,24 @@ int main(int argc, char *argv[]) {
     rem  = n % size;
 
     if (rank == 0) {
-        // Send chunks to workers
+
         for (int p = 1; p < size; p++) {
             int cnt = (p < rem) ? (part + 1) : part;
             int start_idx = p * part + (p < rem ? p : rem);
             MPI_Send(&arr[start_idx], cnt, MPI_INT, p, 1, MPI_COMM_WORLD);
         }
 
-        // Sort local chunk
+
         int cnt0 = (0 < rem) ? (part + 1) : part;
         quicksort(arr, 0, cnt0 - 1);
 
-        // Receive sorted chunks
         for (int p = 1; p < size; p++) {
             int cnt = (p < rem) ? (part + 1) : part;
             int start_idx = p * part + (p < rem ? p : rem);
             MPI_Recv(&arr[start_idx], cnt, MPI_INT, p, 2, MPI_COMM_WORLD, &status);
         }
 
-        // Final merge (simple quicksort on whole array)
+   
         quicksort(arr, 0, n - 1);
 
         cout << "Sorted array:\n";

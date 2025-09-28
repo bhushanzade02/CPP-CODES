@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
         cin >> n;
     }
 
+    
     MPI_Bcast(&n, 1, MPI_LONG_LONG, 0, MPI_COMM_WORLD);
     long long part = n / size;
     long long remainder = n % size;

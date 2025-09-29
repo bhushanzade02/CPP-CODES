@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
         cout << endl;
     }
 
+    /*
     // cout <<endl;
     // cout<< "Data Received at " <<rank<<":" <<endl;
     // for(int i =0 ; i<cols;i++)
@@ -67,7 +68,7 @@ int main(int argc, char *argv[])
     // }
     // cout<<endl;
 
-    /*
+    
     int b = 0;
     for (int i = 0; i < ; i++)
     {

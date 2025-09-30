@@ -35,16 +35,16 @@ int main(int argc, char *argv[])
     MPI_Bcast(x.data(), cols, MPI_INT, 0, MPI_COMM_WORLD);
 
     // step 4 : calcualting multiplication each row independently
-    int brvec = 0;
+    int brow = 0;
     for (int i = 0; i < cols; i++)
     {
-        brvec = brvec + row[i] * x[i];
+        brow = brow + row[i] * x[i];
     }
 
-    cout << "B at" << rank << "is" << brvec << endl;
+    cout << "B at" << rank << "is" << brow << endl;
 
     // elemenst of vector b stored at rank 0
-    MPI_Gather(&brvec, 1, MPI_INT, b.data(), 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Gather(&brow, 1, MPI_INT, b.data(), 1, MPI_INT, 0, MPI_COMM_WORLD);
 
     if (rank == 0)
     {
@@ -58,22 +58,7 @@ int main(int argc, char *argv[])
         cout << endl;
     }
 
-    /*
-    // cout <<endl;
-    // cout<< "Data Received at " <<rank<<":" <<endl;
-    // for(int i =0 ; i<cols;i++)
-    // {
-    //     cout << x[i]<<" ";
-
-    // }
-    // cout<<endl;
-
     
-    int b = 0;
-    for (int i = 0; i < ; i++)
-    {
-        b += A[i] * x
-    } */
     MPI_Finalize();
     return 0;
 }

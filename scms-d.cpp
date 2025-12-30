@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
                 cout << result[i] << " ";
         cout << endl;
 	*/
+
 	
         // element of ans vector b to be stored at process 0
         MPI_Gather(result.data(), noRows, MPI_INT, ans.data(), noRows, MPI_INT, 0, MPI_COMM_WORLD);
